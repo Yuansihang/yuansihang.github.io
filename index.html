@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuans Store - Mosquito Control, Pet Supplies & Phone Accessories</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; font-size: 14px; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 140px 0 80px; text-align: center; }
+        .hero h1 { font-size: 42px; margin-bottom: 15px; }
+        .hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; }
+        .cta-button { display: inline-block; background: #ff6b6b; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; margin-top: 20px; }
+        .category-section { padding: 60px 0; }
+        .category-section:nth-child(even) { background: #f8f9fa; }
+        .category-header { text-align: center; margin-bottom: 40px; }
+        .category-icon { font-size: 50px; margin-bottom: 10px; }
+        .category-title { font-size: 32px; color: #333; margin-bottom: 10px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.08); }
+        .product-image { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 70px; }
+        .mosquito-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .pet-bg { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .phone-bg { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .product-info { padding: 20px; }
+        .product-name { font-size: 18px; margin-bottom: 8px; color: #333; font-weight: 600; }
+        .product-price { font-size: 24px; color: #ff6b6b; font-weight: bold; margin-bottom: 12px; }
+        .product-price .original { font-size: 16px; color: #999; text-decoration: line-through; margin-left: 8px; }
+        .product-features { list-style: none; margin-bottom: 15px; font-size: 13px; }
+        .product-features li { padding: 3px 0; color: #666; }
+        .product-features li:before { content: "✓ "; color: #4ecdc4; font-weight: bold; }
+        .buy-button { display: block; width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px; border: none; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; }
+        .features { padding: 60px 0; background: #f8f9fa; }
+        .section-title { text-align: center; font-size: 32px; margin-bottom: 40px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .feature-item { text-align: center; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); }
+        .feature-icon { font-size: 45px; margin-bottom: 15px; }
+        footer { background: #333; color: white; padding: 40px 0; text-align: center; }
+        @media (max-width: 768px) { .hero h1 { font-size: 28px; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🛒 Yuans Store</div>
+            <ul class="nav-links">
+                <li><a href="#mosquito">Mosquito Control</a></li>
+                <li><a href="#pet">Pet Supplies</a></li>
+                <li><a href="#phone">Phone Accessories</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Your One-Stop Lifestyle Store</h1>
+            <p>Quality products for mosquito control, pet care, and phone accessories.<br>Fast shipping across Southeast Asia!</p>
+            <a href="#mosquito" class="cta-button">Shop Now - Up to 50% OFF</a>
+        </div>
+    </section>
+
+    <!-- Mosquito Control -->
+    <section class="category-section" id="mosquito">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">🦟</div>
+                <h2 class="category-title">Mosquito Control</h2>
+                <p class="category-desc">Protect your family with natural, chemical-free solutions</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image mosquito-bg">💡</div>
+                    <div class="product-info">
+                        <h3 class="product-name">USB Mosquito Killer Lamp</h3>
+                        <div class="product-price">$12.99 <span class="original">$24.99</span></div>
+                        <ul class="product-features">
+                            <li>UV light attraction technology</li>
+                            <li>USB powered, energy saving</li>
+                            <li>Silent operation, no chemicals</li>
+                            <li>Covers 50 square meters</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image mosquito-bg">🏸</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Electric Mosquito Swatter</h3>
+                        <div class="product-price">$8.99 <span class="original">$16.99</span></div>
+                        <ul class="product-features">
+                            <li>3000V high voltage grid</li>
+                            <li>USB rechargeable battery</li>
+                            <li>3-layer safety mesh</li>
+                            <li>LED light for night use</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image mosquito-bg">🌈</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mosquito Repellent Bracelet</h3>
+                        <div class="product-price">$4.99 <span class="original">$9.99</span></div>
+                        <ul class="product-features">
+                            <li>Natural plant oil formula</li>
+                            <li>30 days protection</li>
+                            <li>Waterproof & adjustable</li>
+                            <li>Safe for kids & adults</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pet Supplies -->
+    <section class="category-section" id="pet">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">🐾</div>
+                <h2 class="category-title">Pet Supplies</h2>
+                <p class="category-desc">Everything your furry friends need for a happy life</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image pet-bg">💧</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Automatic Pet Water Fountain</h3>
+                        <div class="product-price">$18.99 <span class="original">$35.99</span></div>
+                        <ul class="product-features">
+                            <li>2.4L large capacity</li>
+                            <li>Triple filtration system</li>
+                            <li>Ultra-quiet pump</li>
+                            <li>USB powered, energy efficient</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image pet-bg">❄️</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Pet Cooling Mat</h3>
+                        <div class="product-price">$9.99 <span class="original">$19.99</span></div>
+                        <ul class="product-features">
+                            <li>Self-cooling gel technology</li>
+                            <li>No electricity needed</li>
+                            <li>Durable, scratch-resistant</li>
+                            <li>Multiple sizes available</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image pet-bg">🎒</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Pet Portable Carrier Bag</h3>
+                        <div class="product-price">$22.99 <span class="original">$42.99</span></div>
+                        <ul class="product-features">
+                            <li>Airline approved size</li>
+                            <li>Breathable mesh windows</li>
+                            <li>Comfortable padded interior</li>
+                            <li>Shoulder strap & handle</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image pet-bg">🍽️</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Smart Automatic Pet Feeder</h3>
+                        <div class="product-price">$45.99 <span class="original">$89.99</span></div>
+                        <ul class="product-features">
+                            <li>App control via WiFi</li>
+                            <li>6L capacity, timed feeding</li>
+                            <li>Voice recording feature</li>
+                            <li>Dual power supply</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image pet-bg">🎾</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Interactive Pet Toy Set</h3>
+                        <div class="product-price">$14.99 <span class="original">$28.99</span></div>
+                        <ul class="product-features">
+                            <li>5-piece variety pack</li>
+                            <li>Durable, non-toxic materials</li>
+                            <li>Squeaky & chew toys</li>
+                            <li>Great for teeth cleaning</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phone Accessories -->
+    <section class="category-section" id="phone">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">📱</div>
+                <h2 class="category-title">Phone Accessories</h2>
+                <p class="category-desc">Enhance your mobile experience with quality accessories</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image phone-bg">📲</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Shockproof Phone Case</h3>
+                        <div class="product-price">$6.99 <span class="original">$14.99</span></div>
+                        <ul class="product-features">
+                            <li>Military-grade protection</li>
+                            <li>Anti-slip grip design</li>
+                            <li>Raised edge protection</li>
+                            <li>Multiple colors available</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image phone-bg">🪑</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Adjustable Phone Stand</h3>
+                        <div class="product-price">$5.99 <span class="original">$11.99</span></div>
+                        <ul class="product-features">
+                            <li>270° angle adjustment</li>
+                            <li>Aluminum alloy construction</li>
+                            <li>Foldable & portable</li>
+                            <li>Universal compatibility</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image phone-bg">🏊</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Waterproof Phone Pouch</h3>
+                        <div class="product-price">$4.99 <span class="original">$9.99</span></div>
+                        <ul class="product-features">
+                            <li>IPX8 certified waterproof</li>
+                            <li>Touchscreen compatible</li>
+                            <li>Neck strap included</li>
+                            <li>Perfect for beach & pool</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image phone-bg">🔌</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Fast Charging Cable Set</h3>
+                        <div class="product-price">$7.99 <span class="original">$15.99</span></div>
+                        <ul class="product-features">
+                            <li>3-in-1: Lightning/USB-C/Micro</li>
+                            <li>3A fast charging support</li>
+                            <li>1.2m braided cable</li>
+                            <li>Durable, tangle-free</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image phone-bg">💨</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mini Phone Fan</h3>
+                        <div class="product-price">$3.99 <span class="original">$7.99</span></div>
+                        <ul class="product-features">
+                            <li>Plug & play, no battery</li>
+                            <li>2-speed adjustable</li>
+                            <li>Ultra-quiet motor</li>
+                            <li>Compact & portable</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image phone-bg">💡</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Ring Light Phone Holder</h3>
+                        <div class="product-price">$11.99 <span class="original">$22.99</span></div>
+                        <ul class="product-features">
+                            <li>10" LED ring light</li>
+                            <li>3 color modes & 10 brightness</li>
+                            <li>Adjustable tripod stand</li>
+                            <li>Perfect for selfies & streaming</li>
+                        </ul>
+                        <button class="buy-button">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Shop With Us?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Shipping</h3>
+                    <p>3-7 days delivery across Southeast Asia</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💯</div>
+                    <h3>Quality Guaranteed</h3>
+                    <p>All products tested and certified</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payment</h3>
+                    <p>Multiple safe payment options</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">↩️</div>
+                    <h3>Easy Returns</h3>
+                    <p>30-day money-back guarantee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Yuans Store. All rights reserved.</p>
+            <p>Contact: support@yuansstore.com</p>
+        </div>
+    </footer>
+</body>
+</html>
