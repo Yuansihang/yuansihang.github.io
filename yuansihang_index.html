@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuans Store</title>
+    
+    
+    
+    <!-- Open Graph / Facebook / WeChat -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yuansihang.github.io">
+    <meta property="og:title" content="Yuans Store - Quality Products for Your Life">
+    <meta property="og:description" content="Mosquito control & pet supplies. Free shipping across Southeast Asia!">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1200&h=630&fit=crop">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yuansihang.github.io">
+    <meta property="twitter:title" content="Yuans Store - Quality Products for Your Life">
+    <meta property="twitter:description" content="Mosquito control & pet supplies. Free shipping across Southeast Asia!">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1200&h=630&fit=crop">
+    
+    <!-- WeChat specific -->
+    <meta name="description" content="Yuans Store - Mosquito control & pet supplies. Free shipping across Southeast Asia!">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; font-size: 14px; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 140px 0 80px; text-align: center; }
+        .hero h1 { font-size: 42px; margin-bottom: 15px; }
+        .hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; }
+        .cta-button { display: inline-block; background: #ff6b6b; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-size: 18px; font-weight: bold; margin-top: 20px; }
+        .category-section { padding: 60px 0; }
+        .category-section:nth-child(even) { background: #f8f9fa; }
+        .category-header { text-align: center; margin-bottom: 40px; }
+        .category-icon { font-size: 50px; margin-bottom: 10px; }
+        .category-title { font-size: 32px; color: #333; margin-bottom: 10px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.08); }
+        .product-image { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 70px; }
+        .mosquito-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .pet-bg { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .phone-bg { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .product-info { padding: 20px; }
+        .product-name { font-size: 18px; margin-bottom: 8px; color: #333; font-weight: 600; }
+        .product-price { font-size: 24px; color: #ff6b6b; font-weight: bold; margin-bottom: 12px; }
+        .product-price .original { font-size: 16px; color: #999; text-decoration: line-through; margin-left: 8px; }
+        .product-features { list-style: none; margin-bottom: 15px; font-size: 13px; }
+        .product-features li { padding: 3px 0; color: #666; }
+        .product-features li:before { content: "✓ "; color: #4ecdc4; font-weight: bold; }
+        .buy-button { display: block; width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px; border: none; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; }
+        .features { padding: 60px 0; background: #f8f9fa; }
+        .section-title { text-align: center; font-size: 32px; margin-bottom: 40px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .feature-item { text-align: center; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); }
+        .feature-icon { font-size: 45px; margin-bottom: 15px; }
+        footer { background: #333; color: white; padding: 40px 0; text-align: center; }
+        @media (max-width: 768px) { .hero h1 { font-size: 28px; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🛒 Yuans Store</div>
+            <ul class="nav-links">
+                <li><a href="#mosquito">Mosquito Control</a></li>
+                <li><a href="#pet">Pet Supplies</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Your One-Stop Lifestyle Store</h1>
+            <p>Quality products for mosquito control and pet care.<br>Fast shipping across Southeast Asia!</p>
+            <a href="#mosquito" class="cta-button">Shop Now - Free Shipping</a>
+        </div>
+    </section>
+
+    <!-- Mosquito Control -->
+    <section class="category-section" id="mosquito">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">🦟</div>
+                <h2 class="category-title">Mosquito Control</h2>
+                <p class="category-desc">Protect your family with natural, chemical-free solutions</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image mosquito-bg">💡</div>
+                    <div class="product-info">
+                        <h3 class="product-name">USB Mosquito Killer Lamp</h3>
+                        <div class="product-price">$18.99 <span class="original">$28.99</span></div>
+                        <ul class="product-features">
+                            <li>UV light attraction technology</li>
+                            <li>USB powered, energy saving</li>
+                            <li>Silent operation, no chemicals</li>
+                            <li>Covers 50 square meters</li>
+                        </ul>
+                        <a href="https://wa.me/8618791650059?text=你好，我对你的产品感兴趣，想咨询一下" target="_blank" style="display:block;width:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:12px;border:none;border-radius:6px;font-size:15px;font-weight:bold;cursor:pointer;text-align:center;text-decoration:none;">立即咨询 WhatsApp</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image mosquito-bg">🏸</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Electric Mosquito Swatter</h3>
+                        <div class="product-price">$15.99 <span class="original">$24.99</span></div>
+                        <ul class="product-features">
+                            <li>3000V high voltage grid</li>
+                            <li>USB rechargeable battery</li>
+                            <li>3-layer safety mesh</li>
+                            <li>LED light for night use</li>
+                        </ul>
+                        <a href="https://wa.me/8618791650059?text=你好，我对你的产品感兴趣，想咨询一下" target="_blank" style="display:block;width:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:12px;border:none;border-radius:6px;font-size:15px;font-weight:bold;cursor:pointer;text-align:center;text-decoration:none;">立即咨询 WhatsApp</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image mosquito-bg">🌈</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Mosquito Repellent Bracelet</h3>
+                        <div class="product-price">$9.99 <span class="original">$15.99</span></div>
+                        <ul class="product-features">
+                            <li>Natural plant oil formula</li>
+                            <li>30 days protection</li>
+                            <li>Waterproof & adjustable</li>
+                            <li>Safe for kids & adults</li>
+                        </ul>
+                        <a href="https://wa.me/8618791650059?text=你好，我对你的产品感兴趣，想咨询一下" target="_blank" style="display:block;width:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:12px;border:none;border-radius:6px;font-size:15px;font-weight:bold;cursor:pointer;text-align:center;text-decoration:none;">立即咨询 WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pet Supplies -->
+    <section class="category-section" id="pet">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">🐾</div>
+                <h2 class="category-title">Pet Supplies</h2>
+                <p class="category-desc">Everything your furry friends need for a happy life</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image pet-bg">💧</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Automatic Pet Water Fountain</h3>
+                        <div class="product-price">$29.99 <span class="original">$45.99</span></div>
+                        <ul class="product-features">
+                            <li>2.4L large capacity</li>
+                            <li>Triple filtration system</li>
+                            <li>Ultra-quiet pump</li>
+                            <li>USB powered, energy efficient</li>
+                        </ul>
+                        <a href="https://wa.me/8618791650059?text=你好，我对你的产品感兴趣，想咨询一下" target="_blank" style="display:block;width:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:12px;border:none;border-radius:6px;font-size:15px;font-weight:bold;cursor:pointer;text-align:center;text-decoration:none;">立即咨询 WhatsApp</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image pet-bg">❄️</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Pet Cooling Mat</h3>
+                        <div class="product-price">$16.99 <span class="original">$25.99</span></div>
+                        <ul class="product-features">
+                            <li>Self-cooling gel technology</li>
+                            <li>No electricity needed</li>
+                            <li>Durable, scratch-resistant</li>
+                            <li>Multiple sizes available</li>
+                        </ul>
+                        <a href="https://wa.me/8618791650059?text=你好，我对你的产品感兴趣，想咨询一下" target="_blank" style="display:block;width:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:12px;border:none;border-radius:6px;font-size:15px;font-weight:bold;cursor:pointer;text-align:center;text-decoration:none;">立即咨询 WhatsApp</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image pet-bg">🎒</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Pet Portable Carrier Bag</h3>
+                        <div class="product-price">$35.99 <span class="original">$49.99</span></div>
+                        <ul class="product-features">
+                            <li>Airline approved size</li>
+                            <li>Breathable mesh windows</li>
+                            <li>Comfortable padded interior</li>
+                            <li>Shoulder strap & handle</li>
+                        </ul>
+                        <a href="https://wa.me/8618791650059?text=你好，我对你的产品感兴趣，想咨询一下" target="_blank" style="display:block;width:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:12px;border:none;border-radius:6px;font-size:15px;font-weight:bold;cursor:pointer;text-align:center;text-decoration:none;">立即咨询 WhatsApp</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image pet-bg">🍽️</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Smart Automatic Pet Feeder</h3>
+                        <div class="product-price">$69.99 <span class="original">$99.99</span></div>
+                        <ul class="product-features">
+                            <li>App control via WiFi</li>
+                            <li>6L capacity, timed feeding</li>
+                            <li>Voice recording feature</li>
+                            <li>Dual power supply</li>
+                        </ul>
+                        <a href="https://wa.me/8618791650059?text=你好，我对你的产品感兴趣，想咨询一下" target="_blank" style="display:block;width:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:12px;border:none;border-radius:6px;font-size:15px;font-weight:bold;cursor:pointer;text-align:center;text-decoration:none;">立即咨询 WhatsApp</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image pet-bg">🎾</div>
+                    <div class="product-info">
+                        <h3 class="product-name">Interactive Pet Toy Set</h3>
+                        <div class="product-price">$19.99 <span class="original">$29.99</span></div>
+                        <ul class="product-features">
+                            <li>5-piece variety pack</li>
+                            <li>Durable, non-toxic materials</li>
+                            <li>Squeaky & chew toys</li>
+                            <li>Great for teeth cleaning</li>
+                        </ul>
+                        <a href="https://wa.me/8618791650059?text=你好，我对你的产品感兴趣，想咨询一下" target="_blank" style="display:block;width:100%;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:12px;border:none;border-radius:6px;font-size:15px;font-weight:bold;cursor:pointer;text-align:center;text-decoration:none;">立即咨询 WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Shop With Us?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Shipping</h3>
+                    <p>3-7 days delivery across Southeast Asia</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💯</div>
+                    <h3>Quality Guaranteed</h3>
+                    <p>All products tested and certified</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payment</h3>
+                    <p>Multiple safe payment options</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">↩️</div>
+                    <h3>Easy Returns</h3>
+                    <p>30-day money-back guarantee</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Yuans Store. All rights reserved.</p>
+            <p>Contact: support@yuansstore.com</p>
+        </div>
+    </footer>
+</body>
+</html>
