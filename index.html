@@ -53,8 +53,10 @@
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px; }
         .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.08); transition: transform 0.3s; }
         .product-card:hover { transform: translateY(-5px); }
-        .product-image { height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .product-image img { width: 100%; height: 100%; object-fit: cover; }
+        .product-image { height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.3s; }
+        .product-image img.loaded { opacity: 1; }
+        .product-image .placeholder-img { color: white; font-size: 60px; }
         .product-info { padding: 25px; }
         .product-name { font-size: 20px; margin-bottom: 10px; color: #333; font-weight: 600; }
         .product-price { font-size: 28px; color: #ff6b6b; font-weight: bold; margin-bottom: 15px; }
@@ -161,7 +163,7 @@
                 <div class="product-grid">
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);">
-                            <img src="images/pet-cooling-mat/basic/绿动物园.jpg" alt="Green Zoo">
+                            <img loading="lazy" src="images/pet-cooling-mat/basic/绿动物园.jpg" alt="Green Zoo">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Green Zoo ⭐ Best Seller</h3>
@@ -178,7 +180,7 @@
                     
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);">
-                            <img src="images/pet-cooling-mat/basic/浅蓝小熊.jpg" alt="Baby Bear">
+                            <img loading="lazy" src="images/pet-cooling-mat/basic/浅蓝小熊.jpg" alt="Baby Bear">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Baby Bear ⭐ Popular</h3>
@@ -195,7 +197,7 @@
                     
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
-                            <img src="images/pet-cooling-mat/basic/浅蓝雪花.jpg" alt="Snowflake">
+                            <img loading="lazy" src="images/pet-cooling-mat/basic/浅蓝雪花.jpg" alt="Snowflake">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Snowflake ⭐ New</h3>
@@ -212,7 +214,7 @@
                     
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);">
-                            <img src="images/pet-cooling-mat/basic/天蓝冰熊.jpg" alt="Sky Bear">
+                            <img loading="lazy" src="images/pet-cooling-mat/basic/天蓝冰熊.jpg" alt="Sky Bear">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Sky Bear</h3>
@@ -229,7 +231,7 @@
                     
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
-                            <img src="images/pet-cooling-mat/basic/宝蓝冰熊.jpg" alt="Royal Bear">
+                            <img loading="lazy" src="images/pet-cooling-mat/basic/宝蓝冰熊.jpg" alt="Royal Bear">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Royal Bear</h3>
@@ -246,7 +248,7 @@
                     
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                            <img src="images/pet-cooling-mat/basic/蓝色鲸鱼.jpg" alt="Whale">
+                            <img loading="lazy" src="images/pet-cooling-mat/basic/蓝色鲸鱼.jpg" alt="Whale">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Whale</h3>
@@ -273,7 +275,7 @@
                 <div class="product-grid">
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                            <img src="images/pet-cooling-mat/injection/浅蓝小熊.jpg" alt="Pink Bear">
+                            <img loading="lazy" src="images/pet-cooling-mat/injection/浅蓝小熊.jpg" alt="Pink Bear">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Pink Bear ⭐ Best Seller</h3>
@@ -290,7 +292,7 @@
                     
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);">
-                            <img src="images/pet-cooling-mat/injection/绿动物园.jpg" alt="Green Zoo">
+                            <img loading="lazy" src="images/pet-cooling-mat/injection/绿动物园.jpg" alt="Green Zoo">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Green Zoo ⭐ Popular</h3>
@@ -307,7 +309,7 @@
                     
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
-                            <img src="images/pet-cooling-mat/injection/浅蓝雪花.jpg" alt="Snowflake">
+                            <img loading="lazy" src="images/pet-cooling-mat/injection/浅蓝雪花.jpg" alt="Snowflake">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Snowflake ⭐ New</h3>
@@ -324,7 +326,7 @@
                     
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                            <img src="images/pet-cooling-mat/injection/天蓝冰熊.jpg" alt="Ice Bear">
+                            <img loading="lazy" src="images/pet-cooling-mat/injection/天蓝冰熊.jpg" alt="Ice Bear">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Ice Bear</h3>
@@ -341,7 +343,7 @@
                     
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
-                            <img src="images/pet-cooling-mat/injection/宝蓝冰熊.jpg" alt="Royal Bear">
+                            <img loading="lazy" src="images/pet-cooling-mat/injection/宝蓝冰熊.jpg" alt="Royal Bear">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Royal Bear</h3>
@@ -358,7 +360,7 @@
                     
                     <div class="product-card">
                         <div class="product-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                            <img src="images/pet-cooling-mat/injection/蓝色鲸鱼.jpg" alt="Whale">
+                            <img loading="lazy" src="images/pet-cooling-mat/injection/蓝色鲸鱼.jpg" alt="Whale">
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">Whale</h3>
