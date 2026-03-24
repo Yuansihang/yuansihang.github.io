@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factory Direct - Pet Supplies Wholesale</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; }
+        .nav-tabs { display: flex; gap: 10px; }
+        .nav-tab { padding: 8px 20px; border-radius: 20px; cursor: pointer; transition: all 0.3s; background: rgba(255,255,255,0.2); border: none; color: white; font-size: 14px; }
+        .nav-tab:hover { background: rgba(255,255,255,0.3); }
+        .nav-tab.active { background: white; color: #667eea; font-weight: bold; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 140px 0 80px; text-align: center; }
+        .hero h1 { font-size: 42px; margin-bottom: 15px; }
+        .hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; }
+        .badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; margin: 5px; font-size: 14px; }
+        .category-section { padding: 60px 0; display: none; }
+        .category-section.active { display: block; }
+        .category-header { text-align: center; margin-bottom: 40px; }
+        .category-icon { font-size: 50px; margin-bottom: 10px; }
+        .category-title { font-size: 32px; color: #333; margin-bottom: 10px; }
+        .sub-tabs { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; }
+        .sub-tab { padding: 10px 30px; border-radius: 25px; cursor: pointer; transition: all 0.3s; background: #e0e0e0; border: none; font-size: 16px; }
+        .sub-tab:hover { background: #d0d0d0; }
+        .sub-tab.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .sub-section { display: none; }
+        .sub-section.active { display: block; }
+        .series-info { background: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; text-align: center; box-shadow: 0 3px 15px rgba(0,0,0,0.08); }
+        .series-info h3 { color: #ff6b6b; font-size: 24px; margin-bottom: 10px; }
+        .series-info .moq { color: #667eea; font-weight: bold; font-size: 18px; }
+        .series-info .mix { color: #4caf50; margin-top: 8px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 15px rgba(0,0,0,0.08); transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-image { height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; }
+        .product-info { padding: 25px; }
+        .product-name { font-size: 20px; margin-bottom: 10px; color: #333; font-weight: 600; }
+        .product-price { font-size: 28px; color: #ff6b6b; font-weight: bold; margin-bottom: 15px; }
+        .product-features { list-style: none; margin-bottom: 20px; }
+        .product-features li { padding: 5px 0; color: #666; }
+        .product-features li:before { content: "✓ "; color: #4ecdc4; font-weight: bold; }
+        .order-button { display: block; width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; }
+        .placeholder { text-align: center; padding: 100px 20px; background: #f8f9fa; border-radius: 12px; }
+        .placeholder-icon { font-size: 80px; margin-bottom: 20px; }
+        .placeholder h2 { font-size: 28px; color: #667eea; margin-bottom: 15px; }
+        .placeholder p { font-size: 16px; color: #666; margin-bottom: 30px; }
+        .coming-soon { display: inline-block; background: #ff6b6b; color: white; padding: 10px 30px; border-radius: 25px; font-weight: bold; }
+        footer { background: #333; color: white; padding: 40px 0; text-align: center; }
+        .footer-contact { margin-bottom: 15px; }
+        .footer-contact a { color: white; text-decoration: none; }
+        footer a { color: white; text-decoration: underline; font-weight: bold; }
+        @media (max-width: 768px) { .hero h1 { font-size: 28px; } .nav-tabs { flex-wrap: wrap; justify-content: center; } .sub-tabs { flex-wrap: wrap; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🛒 Factory Direct</div>
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showCategory('mats')">Cooling Mats</button>
+                <button class="nav-tab" onclick="showCategory('toys')">Pet Toys</button>
+                <button class="nav-tab" onclick="showCategory('feeders')">Smart Feeders</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Premium Pet Supplies Wholesale</h1>
+            <p>Professional B2B Supplier from China</p>
+            <div>
+                <span class="badge">✓ Stock MOQ 300 pcs</span>
+                <span class="badge">✓ Custom MOQ 1,000 pcs</span>
+                <span class="badge">✓ Mixed Order OK</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-section active" id="mats">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">❄️</div>
+                <h2 class="category-title">Cooling Mats</h2>
+                <p>Keep your pets cool and comfortable</p>
+            </div>
+            
+            <div class="sub-tabs">
+                <button class="sub-tab active" onclick="showSubCategory('normal')">Basic</button>
+                <button class="sub-tab" onclick="showSubCategory('water')">Water Refill</button>
+            </div>
+            
+            <div class="sub-section active" id="normal">
+                <div class="series-info">
+                    <h3>Price: $2.20 - $7.50</h3>
+                    <div class="moq">Stock: MOQ 300 pcs | Custom: MOQ 1,000 pcs</div>
+                    <div class="mix">✓ Mixed Order OK: Mix Sizes, Colors, Basic+Water Refill ✓</div>
+                </div>
+
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);">
+                            <img src="images/pet-cooling-mat/basic/绿动物园.jpg" alt="Green Zoo">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Green Zoo ⭐ Best Seller</h3>
+                            <div class="product-price">$2.20 - $7.50</div>
+                            <ul class="product-features">
+                                <li>Fresh green animal pattern</li>
+                                <li>S to XL sizes</li>
+                                <li>Pet-friendly material</li>
+                                <li>Natural cooling</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Green Zoo (Basic). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);">
+                            <img src="images/pet-cooling-mat/basic/浅蓝小熊.jpg" alt="Baby Bear">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Baby Bear ⭐ Popular</h3>
+                            <div class="product-price">$2.20 - $7.50</div>
+                            <ul class="product-features">
+                                <li>Light purple baby bear</li>
+                                <li>S to XL sizes</li>
+                                <li>Gentle cooling</li>
+                                <li>Safe for puppies</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Baby Bear (Basic). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            <img src="images/pet-cooling-mat/basic/浅蓝雪花.jpg" alt="Snowflake">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Snowflake ⭐ New</h3>
+                            <div class="product-price">$2.20 - $7.50</div>
+                            <ul class="product-features">
+                                <li>Warm snowflake pattern</li>
+                                <li>S to XL sizes</li>
+                                <li>Extra cool feeling</li>
+                                <li>Non-toxic gel</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Snowflake (Basic). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);">
+                            <img src="images/pet-cooling-mat/basic/天蓝冰熊.jpg" alt="Sky Bear">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Sky Bear</h3>
+                            <div class="product-price">$2.20 - $7.50</div>
+                            <ul class="product-features">
+                                <li>Fresh sky blue design</li>
+                                <li>S to XL sizes</li>
+                                <li>Self-cooling gel</li>
+                                <li>No electricity needed</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Sky Bear (Basic). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                            <img src="images/pet-cooling-mat/basic/宝蓝冰熊.jpg" alt="Royal Bear">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Royal Bear</h3>
+                            <div class="product-price">$2.20 - $7.50</div>
+                            <ul class="product-features">
+                                <li>Elegant royal blue-purple</li>
+                                <li>S to XL sizes</li>
+                                <li>Durable material</li>
+                                <li>Easy to clean</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Royal Bear (Basic). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                            <img src="images/pet-cooling-mat/basic/蓝色鲸鱼.jpg" alt="Whale">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Whale</h3>
+                            <div class="product-price">$2.20 - $7.50</div>
+                            <ul class="product-features">
+                                <li>Cute whale design</li>
+                                <li>S to XL sizes</li>
+                                <li>Ocean teal color</li>
+                                <li>Great for big dogs</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Whale (Basic). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sub-section" id="water">
+                <div class="series-info">
+                    <h3>Price: $2.60 - $15.50</h3>
+                    <div class="moq">Stock: MOQ 300 pcs | Custom: MOQ 1,000 pcs</div>
+                    <div class="mix">✓ Mixed Order OK: Mix Sizes, Colors, Basic+Water Refill ✓</div>
+                </div>
+
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            <img src="images/pet-cooling-mat/injection/浅蓝小熊.jpg" alt="Pink Bear">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Pink Bear ⭐ Best Seller</h3>
+                            <div class="product-price">$2.60 - $15.50</div>
+                            <ul class="product-features">
+                                <li>Cute pink bear design</li>
+                                <li>S to 3XL sizes</li>
+                                <li>Injection hole for refill</li>
+                                <li>Longer cooling time</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Pink Bear (Water Refill). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);">
+                            <img src="images/pet-cooling-mat/injection/绿动物园.jpg" alt="Green Zoo">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Green Zoo ⭐ Popular</h3>
+                            <div class="product-price">$2.60 - $15.50</div>
+                            <ul class="product-features">
+                                <li>Fresh green animal pattern</li>
+                                <li>S to 3XL sizes</li>
+                                <li>Eco-friendly design</li>
+                                <li>Reusable & durable</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Green Zoo (Water Refill). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            <img src="images/pet-cooling-mat/injection/浅蓝雪花.jpg" alt="Snowflake">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Snowflake ⭐ New</h3>
+                            <div class="product-price">$2.60 - $15.50</div>
+                            <ul class="product-features">
+                                <li>Warm snowflake pattern</li>
+                                <li>S to 3XL sizes</li>
+                                <li>Beautiful winter design</li>
+                                <li>Unique & eye-catching</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Snowflake (Water Refill). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <img src="images/pet-cooling-mat/injection/天蓝冰熊.jpg" alt="Ice Bear">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Ice Bear</h3>
+                            <div class="product-price">$2.60 - $15.50</div>
+                            <ul class="product-features">
+                                <li>Premium ice bear design</li>
+                                <li>S to 3XL sizes</li>
+                                <li>Injection hole for refill</li>
+                                <li>Reusable & eco-friendly</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Ice Bear (Water Refill). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                            <img src="images/pet-cooling-mat/injection/宝蓝冰熊.jpg" alt="Royal Bear">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Royal Bear</h3>
+                            <div class="product-price">$2.60 - $15.50</div>
+                            <ul class="product-features">
+                                <li>Elegant royal blue-purple</li>
+                                <li>S to 3XL sizes</li>
+                                <li>Extended cooling time</li>
+                                <li>Long-lasting cool</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Royal Bear (Water Refill). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                            <img src="images/pet-cooling-mat/injection/蓝色鲸鱼.jpg" alt="Whale">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Whale</h3>
+                            <div class="product-price">$2.60 - $15.50</div>
+                            <ul class="product-features">
+                                <li>Cute whale design</li>
+                                <li>S to 3XL sizes</li>
+                                <li>Maximum cooling power</li>
+                                <li>Ocean-inspired cooling</li>
+                            </ul>
+                            <a href="https://wa.me/8618791650059?text=Hi, I'm interested in Whale (Water Refill). MOQ 300 pcs." target="_blank" class="order-button">Request Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-section" id="toys">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">🎾</div>
+                <h2 class="category-title">Pet Toys</h2>
+                <p>Fun and durable toys for your pets</p>
+            </div>
+            <div class="placeholder">
+                <div class="placeholder-icon">🎁</div>
+                <h2>Coming Soon</h2>
+                <p>Exciting pet toys are on the way!<br>Interactive toys, chew toys, and more.</p>
+                <div class="coming-soon">Stay Tuned</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-section" id="feeders">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">🍽️</div>
+                <h2 class="category-title">Smart Feeders</h2>
+                <p>Smart feeding solutions for busy pet owners</p>
+            </div>
+            <div class="placeholder">
+                <div class="placeholder-icon">🤖</div>
+                <h2>Coming Soon</h2>
+                <p>Smart feeders and water fountains coming soon!<br>App-controlled, timed feeding, and more.</p>
+                <div class="coming-soon">Stay Tuned</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Factory Direct | Stock MOQ 300 pcs | Custom MOQ 1,000 pcs | WhatsApp: <a href="https://wa.me/8618791650059">+86 187 9165 0059</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function showCategory(category) {
+            document.querySelectorAll('.category-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(category).classList.add('active');
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+        
+        function showSubCategory(subCategory) {
+            document.querySelectorAll('.sub-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(subCategory).classList.add('active');
+            const parent = event.target.closest('.container');
+            parent.querySelectorAll('.sub-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
